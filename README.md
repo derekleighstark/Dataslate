@@ -4,7 +4,7 @@
 
 # Run and deploy your AI Studio app
 
-https://youtu.be/8TDbHT8Ry4U
+[![Watch the video](https://img.youtube.com/vi/8TDbHT8Ry4U/0.jpg)](https://youtu.be/8TDbHT8Ry4U)
 
 This contains everything you need to run your app locally.
 
