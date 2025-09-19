@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genre Dataslate & Document Creator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Antonio:wght@400;700&family=Special+Elite&family=Bangers&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;700&family=Creepster&display=swap');
+      
+      @keyframes flicker {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.95; }
+      }
+      .animate-flicker {
+        animation: flicker 2s infinite linear;
+      }
+      @keyframes scanline {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(4px); } /* Match background-size for seamless loop */
+      }
+      .scanline-overlay::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* Using subtle white lines, which are visible on dark backgrounds */
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0) 0,
+          rgba(255, 255, 255, 0) 2px,
+          rgba(255, 255, 255, 0.06) 3px,
+          rgba(255, 255, 255, 0.06) 4px
+        );
+        background-size: 100% 4px; /* Adjust size to match gradient */
+        animation: scanline 2s linear infinite; /* Faster, more noticeable animation */
+        pointer-events: none;
+        z-index: 30; /* Ensure scanlines are on top of all content */
+        /* Opacity is now handled in the RGBA color for better control */
+      }
+      .halftone-overlay::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+        background-size: 4px 4px;
+        pointer-events: none;
+        z-index: 15;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
